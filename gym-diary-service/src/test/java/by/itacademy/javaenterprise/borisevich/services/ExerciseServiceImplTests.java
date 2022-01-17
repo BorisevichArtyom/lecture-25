@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.when;
+import static org.mockito.internal.verification.VerificationModeFactory.times;
 
 
 @ExtendWith(MockitoExtension.class)
@@ -40,16 +42,14 @@ public class ExerciseServiceImplTests {
 
     @Test
     public void saveExerciseTest() throws Exception {
-//        when(exerciseDAO.count()).thenReturn(20L);
-//        assertEquals(20L, exerciseService.save(exercise));
-//        Mockito.verify(exerciseDAO, times(1)).saveOrUpdate(exercise);
+        exerciseService.save(exercise);
+        Mockito.verify(exerciseDAO, times(1)).saveOrUpdate(exercise);
     }
 
     @Test
     public void deleteExerciseTest() throws Exception {
-//        when(exerciseDAO.count()).thenReturn(19L);
-//        assertEquals(19L, exerciseService.delete(exercise.getId()));
-//        Mockito.verify(exerciseDAO, times(1)).deleteById(exercise.getId());
+        exerciseService.delete(exercise.getId());
+        Mockito.verify(exerciseDAO, times(1)).deleteById(exercise.getId());
     }
 
     @Test
