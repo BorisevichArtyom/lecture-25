@@ -22,10 +22,13 @@ import static org.mockito.internal.verification.VerificationModeFactory.times;
 
 @ExtendWith(MockitoExtension.class)
 public class ExerciseServiceImplTests {
+    
     @Mock
     private ExerciseDAO exerciseDAO;
+    
     @InjectMocks
     private static ExerciseService<Exercise> exerciseService;
+    
     private Exercise exercise = Exercise.builder().id(1L).name("Test").description("No description").build();
 
     @BeforeAll
