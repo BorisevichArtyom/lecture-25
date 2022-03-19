@@ -27,8 +27,9 @@ jobs:
     - name: SonarCloud Scan
       uses: SonarSource/sonarcloud-github-action@v1.6
       
-        set -e if [[ -z "${SONAR_TOKEN}" ]]; then
+        set -e 
+        if [[ -z "${SONAR_TOKEN}" ]]; then
         echo "Set the SONAR_TOKEN env variable."
         exit 1
-fi
+        fi
 
